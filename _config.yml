@@ -1,0 +1,50 @@
+# Configuraciones básicas del sitio
+title: "Mi Web Personal"
+email: "tu-email@ejemplo.com"
+description: "Una breve descripción de ti o tu sitio."
+baseurl: ""  # Si tu sitio está en la raíz del dominio (deja vacío para GitHub Pages)
+url: "https://web-personal.github.io"  # La URL de tu sitio
+twitter_username: "tu-usuario-twitter"
+github_username:  "tu-usuario-github"
+
+# Tema de Jekyll
+theme: minima  # Puedes usar 'minima' o cualquier otro tema compatible
+
+# Configuración de Markdown
+markdown: kramdown
+
+# Plugins de Jekyll
+plugins:
+  - jekyll-feed  # Para generar el feed RSS
+  - jekyll-seo-tag  # Mejora SEO con etiquetas meta
+  - jekyll-sitemap  # Genera un sitemap.xml automáticamente
+
+# Paginación (si quieres dividir las publicaciones en páginas)
+paginate: 5
+paginate_path: "/page:num/"
+
+# Excluir carpetas o archivos (por ejemplo, si no quieres incluir drafts)
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+
+# Incluir carpetas (en caso de tener algo personalizado)
+include:
+  - _pages  # Si tienes páginas en una carpeta personalizada, como "pages"
+
+# Configuración del layout
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
+# Configuraciones adicionales para personalización del tema
+permalink: pretty  # URLs amigables sin ".html" al final
