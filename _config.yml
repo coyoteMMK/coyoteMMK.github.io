@@ -1,4 +1,4 @@
 title: "Mi Web"
 description: "Mi sitio web usando Jekyll"
-baseurl: "https://coyotemmk.github.io/Intento-1.github.io/"  # Si no usas subdirectorios adicionales, dejar vacío
+baseurl: "/Intento-1.github.io"  # Si no usas subdirectorios adicionales, dejar vacío
 permalink: /:path/  # Mantiene la estructura de carpetas para las URLs
