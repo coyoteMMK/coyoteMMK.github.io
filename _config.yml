@@ -2,7 +2,7 @@
 title: "Mi Web Personal"
 email: "tu-email@ejemplo.com"
 description: "Una breve descripción de ti o tu sitio."
-baseurl: ""  # Si tu sitio está en la raíz del dominio (deja vacío para GitHub Pages)
+baseurl: "/pages"  # Si tu sitio está en la raíz del dominio (deja vacío para GitHub Pages)
 url: "https://web-personal.github.io"  # La URL de tu sitio
 twitter_username: "tu-usuario-twitter"
 github_username:  "tu-usuario-github"
