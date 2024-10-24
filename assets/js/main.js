@@ -1,66 +1,66 @@
-/**
- * Aside show and hide when screen_width = 1024px
- */
+// Seleccionar el botón de toggle y el menú lateral (aside)
 var aside_toggle = document.getElementById('aside-toggle');
-/** Aside show and hide when screen_width = 1024px **/
+
+/** Función para mostrar/ocultar el menú lateral (aside) **/
 function toggleMenu() {
     var aside = document.getElementById('aside-nav');
+    var windowWidth = window.innerWidth; // Ancho actual de la ventana
+    
     aside.classList.toggle('active');
+    
     if (aside.classList.contains('active')) {
+        // Si el menú está activo, cambia el ícono del botón a "X"
         aside_toggle.innerHTML = '<i class="bx bx-x"></i>';
-        aside.animate([
-            { transform: 'translateX(-100%)' },
-            { transform: 'translateX(0)' }
-        ], {
-            duration: 400,
-            fill: 'forwards'
-        });
-        aside_toggle.animate([
-            { opacity: '0' },
-            { opacity: '1' }
-        ], {
-            duration: 400,
-            fill: 'forwards'
-        });
-
-        aside.style.display = 'block';
-    }else if (!aside.classList.contains('active')) {
+        
+        // Animación y estilo dependiendo del ancho de pantalla
+        if (windowWidth > 1024) {
+            // Pantallas grandes: el menú ocupará solo una parte de la pantalla (lateral)
+            aside.style.width = '300px'; // Ajustar el ancho como lateral
+            aside.animate([
+                { transform: 'translateX(-300px)' }, // Ancho del lateral
+                { transform: 'translateX(0)' }
+            ], {
+                duration: 400,
+                fill: 'forwards'
+            });
+        } else {
+            // Pantallas pequeñas: el menú ocupará toda la pantalla
+            aside.style.width = '100%'; // Ocupar toda la pantalla
+            aside.animate([
+                { transform: 'translateX(-100%)' },
+                { transform: 'translateX(0)' }
+            ], {
+                duration: 400,
+                fill: 'forwards'
+            });
+        }
+        
+    } else {
+        // Si el menú está oculto, cambia el ícono del botón a "Menú"
         aside_toggle.innerHTML = '<i class="bx bx-menu"></i>';
-        aside.animate([
-            { transform: 'translateX(0)' },
-            { transform: 'translateX(-100%)' }
-        ], {
-            duration: 400,
-            fill: 'forwards'
-        });
-        aside_toggle.animate([
-            { opacity: '0' },
-            { opacity: '1' }
-        ], {
-            duration: 400,
-            fill: 'forwards'
-        });
+        
+        // Animación de ocultar el menú para ambos casos
+        if (windowWidth > 1024) {
+            aside.animate([
+                { transform: 'translateX(0)' },
+                { transform: 'translateX(-300px)' } // Ocultar como lateral
+            ], {
+                duration: 400,
+                fill: 'forwards'
+            });
+        } else {
+            aside.animate([
+                { transform: 'translateX(0)' },
+                { transform: 'translateX(-100%)' } // Ocultar toda la pantalla
+            ], {
+                duration: 400,
+                fill: 'forwards'
+            });
+        }
     }
 }
 
-window.addEventListener('resize', function() {
-    var aside = document.getElementById('aside-nav');
-    var aside_toggle = document.getElementById('aside-toggle');
-    if (window.innerWidth > 1024) { // Verificamos el ancho de la pantalla
-        if (!aside.classList.contains('active')) { // Si el menu está cerrado
-            aside_toggle.innerHTML = '<i class="bx bx-menu"></i>'; // Cambiamos el icono del boton
-        }
-        aside.animate([
-            { transform: 'translateX(-100%)' },
-            { transform: 'translateX(0%)' }
-        ], {
-            duration: 0,
-            fill: 'forwards'
-        });
-        
-    }
-});
-
+// Cargar imágenes de fondo dinámicamente cuando se carga la página
 window.addEventListener('load', function() {
     var bg = document.getElementsByClassName('bg');
     for (var i = 0; i < bg.length; i++) {
@@ -68,5 +68,6 @@ window.addEventListener('load', function() {
     }
 });
 
-
+// Asignar el evento de clic al botón de menú lateral
 aside_toggle.addEventListener('click', toggleMenu);
+
