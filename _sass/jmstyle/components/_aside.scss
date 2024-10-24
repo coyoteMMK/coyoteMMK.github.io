@@ -1,13 +1,17 @@
 #aside-toggle{
-    display: none;
+    display: flex; /* Mostrar siempre el botón */
     cursor: pointer;
     font-size: 2rem;
     align-items: center;
     justify-content: center;
+    z-index: 1000; /* Asegura que esté encima del contenido */
+    position: fixed; /* Mantener fijo en la pantalla */
+    top: 20px; /* Ajusta la posición en la pantalla */
+    left: 20px; /* Ajusta la posición en la pantalla */
 }
 
 #aside-nav{
-    display: block;
+    display: block; /* Mostrar el menú por defecto en pantallas grandes */
     height: 100vh;
     width: $aside-width;
     color: $primary;
@@ -20,62 +24,20 @@
     padding-bottom: 14vh; 
 }
 
-#aside-nav h2{
-    padding-bottom: 8px;
-}
-
-#aside-nav h2::after{
-    content: '';
-    display: block;
-    width: 100%;
-    height: 1px;
-    background-color: #0000004d;
-    margin-top: 8px;
-}
-
-#aside-nav ul{
-    padding-left: 16px;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-}
-
-#aside-nav ul li a{
-    display: inline-block;
-    text-decoration: none;
-    color: inherit;
-    font-size: 1em;
-    width: 100%;
-    padding: 4px;
-}
-
-#aside-nav ul li a:hover{
-    color: $primary;
-    text-decoration: underline;
-}
-
-.year-button{
-    width:100%;
-    background-color: $tertiary;
-    color: $white;
-    padding: 4px;
-    cursor: pointer;
-}
-
 @media screen and (max-width: $ms-width){
     #aside-toggle{
-        display: flex;
+        display: flex; /* Mostrar el botón en pantallas pequeñas también */
         cursor: pointer;
     }
 
     #aside-nav{
         font-size: 1.25em;
-        display: none;
+        display: none; /* Ocultar el menú lateral por defecto en pantallas pequeñas */
         background: #f1f1f1d5;
         backdrop-filter: blur(12px);
         position: fixed;
         z-index: 100;
         border-right: 1px solid #dddddd4f;
-        width: 100%;
+        width: 100%; /* Ocupar toda la pantalla en pantallas pequeñas */
     }
 }
