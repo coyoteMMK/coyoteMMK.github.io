@@ -1,9 +1,20 @@
 <header>
-    <a href="/" class="logo-wrapper">
-        <h1>Santos.</h1>
+    <!-- Botón de casa (Home) -->
+    <a href="/" class="home-button">
+        <i class='bx bx-home'></i> <!-- Icono de casa -->
     </a>
+    
+    <!-- Incluir la navegación si es necesaria -->
     {% include navigation.html %}
+
+    <!-- Botón para desplegar el menú lateral -->
     <div id="aside-toggle">
-        <i class='bx bx-menu'></i>
+        <i class='bx bx-menu'></i> <!-- Icono del menú -->
     </div>
+
+    <!-- Botón hacia la sección de blogs -->
+    <a href="/blog" class="blog-button">
+        <i class='bx bx-news'></i> <!-- Icono de blog -->
+        Blogs
+    </a>
 </header>
