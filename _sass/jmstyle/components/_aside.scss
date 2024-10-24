@@ -1,43 +1,54 @@
-#aside-toggle{
-    display: flex; /* Mostrar siempre el botón */
+/* Estilos para el botón de menú lateral */
+#aside-toggle {
+    display: flex;
     cursor: pointer;
     font-size: 2rem;
     align-items: center;
     justify-content: center;
     z-index: 1000; /* Asegura que esté encima del contenido */
-    position: fixed; /* Mantener fijo en la pantalla */
-    top: 20px; /* Ajusta la posición en la pantalla */
-    left: 20px; /* Ajusta la posición en la pantalla */
+    position: fixed;
+    top: 20px;
+    left: 20px;
 }
 
-#aside-nav{
-    display: block; /* Mostrar el menú por defecto en pantallas grandes */
-    height: 100vh;
-    width: $aside-width;
-    color: $primary;
-    background-color: $white;
-    padding: 32px 16px 32px 24px;
-    position: sticky;
-    top: $header-height;
+/* Ocultar el menú lateral por defecto */
+#aside-nav {
+    display: none;
+    position: fixed;
+    top: 0;
     left: 0;
-    overflow: scroll;
-    padding-bottom: 14vh; 
+    width: 300px; /* El ancho del menú lateral */
+    height: 100vh;
+    background-color: #121212;
+    z-index: 999;
+    overflow-y: auto;
 }
 
-@media screen and (max-width: $ms-width){
-    #aside-toggle{
-        display: flex; /* Mostrar el botón en pantallas pequeñas también */
-        cursor: pointer;
-    }
+/* Mostrar el menú lateral cuando esté activo */
+#aside-nav.active {
+    display: block;
+    animation: slideIn 0.4s forwards;
+}
 
-    #aside-nav{
-        font-size: 1.25em;
-        display: none; /* Ocultar el menú lateral por defecto en pantallas pequeñas */
-        background: #f1f1f1d5;
-        backdrop-filter: blur(12px);
-        position: fixed;
-        z-index: 100;
-        border-right: 1px solid #dddddd4f;
-        width: 100%; /* Ocupar toda la pantalla en pantallas pequeñas */
+/* Animación para el menú lateral */
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* Ajuste para pantallas grandes y pequeñas: El contenido ocupa toda la pantalla */
+.content {
+    width: 100%; /* Ocupar todo el ancho de la pantalla */
+    padding: 20px; /* Ajusta según tu diseño */
+}
+
+/* En pantallas pequeñas, el menú ocupa todo el ancho */
+@media screen and (max-width: 1024px) {
+    #aside-nav {
+        width: 100%; /* El menú ocupa toda la pantalla */
     }
 }
