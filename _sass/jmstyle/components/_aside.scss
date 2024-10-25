@@ -62,20 +62,4 @@
     cursor: pointer;
 }
 
-@media screen and (max-width: $ms-width){
-    #aside-toggle{
-        display: flex;
-        cursor: pointer;
-    }
 
-    #aside-nav{
-        font-size: 1.25em;
-        display: none;
-        background: #f1f1f1d5;
-        backdrop-filter: blur(12px);
-        position: fixed;
-        z-index: 100;
-        border-right: 1px solid #dddddd4f;
-        width: 100%;
-    }
-}
