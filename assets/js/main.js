@@ -1,28 +1,66 @@
-
+/**
+ * Aside show and hide when screen_width = 1024px
+ */
 var aside_toggle = document.getElementById('aside-toggle');
-var aside = document.getElementById('aside-nav');
-var content = document.querySelector('.content'); // Contenedor principal de contenido
-var banner = document.querySelector('.banner'); // Contenedor de banners
-
-/** Función para mostrar/ocultar el menú lateral **/
+/** Aside show and hide when screen_width = 1024px **/
 function toggleMenu() {
-    aside.classList.toggle('active'); // Alternar clase 'active' para el menú
-
+    var aside = document.getElementById('aside-nav');
+    aside.classList.toggle('active');
     if (aside.classList.contains('active')) {
-        // Añadir clase para el contenido y banners cuando el menú está activo
-        content.classList.add('menu-visible');
-        banner.classList.add('menu-visible');
         aside_toggle.innerHTML = '<i class="bx bx-x"></i>';
-    } else {
-        // Quitar la clase cuando el menú esté oculto
-        content.classList.remove('menu-visible');
-        banner.classList.remove('menu-visible');
+        aside.animate([
+            { transform: 'translateX(-100%)' },
+            { transform: 'translateX(0)' }
+        ], {
+            duration: 400,
+            fill: 'forwards'
+        });
+        aside_toggle.animate([
+            { opacity: '0' },
+            { opacity: '1' }
+        ], {
+            duration: 400,
+            fill: 'forwards'
+        });
+
+        aside.style.display = 'block';
+    }else if (!aside.classList.contains('active')) {
         aside_toggle.innerHTML = '<i class="bx bx-menu"></i>';
+        aside.animate([
+            { transform: 'translateX(0)' },
+            { transform: 'translateX(-100%)' }
+        ], {
+            duration: 400,
+            fill: 'forwards'
+        });
+        aside_toggle.animate([
+            { opacity: '0' },
+            { opacity: '1' }
+        ], {
+            duration: 400,
+            fill: 'forwards'
+        });
     }
 }
 
+window.addEventListener('resize', function() {
+    var aside = document.getElementById('aside-nav');
+    var aside_toggle = document.getElementById('aside-toggle');
+    if (window.innerWidth > 1024) { // Verificamos el ancho de la pantalla
+        if (!aside.classList.contains('active')) { // Si el menu está cerrado
+            aside_toggle.innerHTML = '<i class="bx bx-menu"></i>'; // Cambiamos el icono del boton
+        }
+        aside.animate([
+            { transform: 'translateX(-100%)' },
+            { transform: 'translateX(0%)' }
+        ], {
+            duration: 0,
+            fill: 'forwards'
+        });
+        
+    }
+});
 
-// Cargar imágenes de fondo dinámicamente cuando se carga la página
 window.addEventListener('load', function() {
     var bg = document.getElementsByClassName('bg');
     for (var i = 0; i < bg.length; i++) {
@@ -30,6 +68,5 @@ window.addEventListener('load', function() {
     }
 });
 
-// Asignar el evento de clic al botón de menú lateral
-aside_toggle.addEventListener('click', toggleMenu);
 
+aside_toggle.addEventListener('click', toggleMenu);
