@@ -6,24 +6,19 @@
     justify-content: center;
 }
 
-#aside-nav {
-    display: none;
-    height: calc(100vh - $header-height); // Ajusta la altura restando la del header
+
+#aside-nav{
+    display: block;
+    height: 100vh;
+    width: $aside-width;
     color: $primary;
     background-color: $white;
-    padding: 32px 16px;
-    position: fixed;
-    top: $header-height; // El menú empieza justo debajo del header
+    padding: 32px 16px 32px 24px;
+    position: sticky;
+    top: $header-height;
     left: 0;
-    overflow-y: auto;
-    padding-bottom: 14vh;
-    z-index: 1000;
-    transition: transform 0.4s ease;
-    transform: translateX(-100%); // Oculto inicialmente
-
-    &.active {
-        transform: translateX(0); // Visible cuando está activo
-    }
+    overflow: scroll;
+    padding-bottom: 14vh; 
 }
 
 
