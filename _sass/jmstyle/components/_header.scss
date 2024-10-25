@@ -57,6 +57,7 @@ nav{
     display: flex;
     text-decoration: none;
     transition: all 0.2s ease-in-out;
+    padding: 0 16px; /* Espaciado interno en los enlaces */
 }
 
 .nav-item a{
