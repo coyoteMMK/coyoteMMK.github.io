@@ -1,13 +1,14 @@
-/**
- * Aside show and hide when screen_width = 1024px
- */
 var aside_toggle = document.getElementById('aside-toggle');
-/** Aside show and hide when screen_width = 1024px **/
+var main_content = document.getElementById('main-content'); // Contenedor principal de la página
+
 function toggleMenu() {
     var aside = document.getElementById('aside-nav');
     aside.classList.toggle('active');
+    
     if (aside.classList.contains('active')) {
         aside_toggle.innerHTML = '<i class="bx bx-x"></i>';
+        
+        // Animación para el aside
         aside.animate([
             { transform: 'translateX(-100%)' },
             { transform: 'translateX(0)' }
@@ -15,6 +16,19 @@ function toggleMenu() {
             duration: 400,
             fill: 'forwards'
         });
+        
+        // Animación para el contenido principal
+        main_content.animate([
+            { transform: 'translateX(0)' },
+            { transform: 'translateX(250px)' } // Ajusta a la misma anchura del aside
+        ], {
+            duration: 400,
+            fill: 'forwards'
+        });
+        
+        aside.style.display = 'block'; // Mostrar el aside
+        
+        // Animación para el ícono del botón
         aside_toggle.animate([
             { opacity: '0' },
             { opacity: '1' }
@@ -22,10 +36,10 @@ function toggleMenu() {
             duration: 400,
             fill: 'forwards'
         });
-
-        aside.style.display = 'block';
-    }else if (!aside.classList.contains('active')) {
+    } else {
         aside_toggle.innerHTML = '<i class="bx bx-menu"></i>';
+        
+        // Animación para ocultar el aside
         aside.animate([
             { transform: 'translateX(0)' },
             { transform: 'translateX(-100%)' }
@@ -33,17 +47,19 @@ function toggleMenu() {
             duration: 400,
             fill: 'forwards'
         });
-        aside_toggle.animate([
-            { opacity: '0' },
-            { opacity: '1' }
+
+        // Animación para que el contenido principal vuelva a su posición
+        main_content.animate([
+            { transform: 'translateX(250px)' }, // Ajusta a la misma anchura del aside
+            { transform: 'translateX(0)' }
         ], {
             duration: 400,
             fill: 'forwards'
         });
 
-        // Establecer el aside como none después de la animación
+        // Ocultar el aside después de la animación
         setTimeout(() => {
-            aside.style.display = 'none'; // Ocultar el aside después de la animación
+            aside.style.display = 'none';
         }, 400); // Coincide con la duración de la animación
     }
 }
@@ -51,9 +67,9 @@ function toggleMenu() {
 window.addEventListener('resize', function() {
     var aside = document.getElementById('aside-nav');
     var aside_toggle = document.getElementById('aside-toggle');
-    if (window.innerWidth > 1024) { // Verificamos el ancho de la pantalla
-        if (!aside.classList.contains('active')) { // Si el menu está cerrado
-            aside_toggle.innerHTML = '<i class="bx bx-menu"></i>'; // Cambiamos el icono del boton
+    if (window.innerWidth > 1024) {
+        if (!aside.classList.contains('active')) {
+            aside_toggle.innerHTML = '<i class="bx bx-menu"></i>';
         }
         aside.animate([
             { transform: 'translateX(-100%)' },
@@ -63,6 +79,8 @@ window.addEventListener('resize', function() {
             fill: 'forwards'
         });
         
+        // Reseteo del contenido principal en tamaño mayor a 1024px
+        main_content.style.transform = 'translateX(0)';
     }
 });
 
@@ -73,5 +91,5 @@ window.addEventListener('load', function() {
     }
 });
 
-
 aside_toggle.addEventListener('click', toggleMenu);
+
