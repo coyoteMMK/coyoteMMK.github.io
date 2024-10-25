@@ -1,50 +1,81 @@
-/* Ajuste del encabezado para que esté fijo en la parte superior */
-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 60px; /* Altura ajustable del header */
-    z-index: 1000;
-}
-
-/* Estilos del menú lateral, que no sobresalga el header */
-#aside-nav {
+#aside-toggle{
     display: none;
-    position: fixed;
-    top: 60px; /* Misma altura que el header */
-    left: 0;
-    height: calc(100vh - 60px); /* Altura total de la ventana menos la altura del header */
-    width: 300px;
-    background-color: #121212;
-    overflow-y: auto;
-    z-index: 999;
+    cursor: pointer;
+    font-size: 2rem;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Mostrar el menú lateral cuando está activo */
-#aside-nav.active {
+#aside-nav{
     display: block;
-    animation: slideIn 0.4s forwards;
+    height: 100vh;
+    width: $aside-width;
+    color: $primary;
+    background-color: $white;
+    padding: 32px 16px 32px 24px;
+    position: sticky;
+    top: $header-height;
+    left: 0;
+    overflow: scroll;
+    padding-bottom: 14vh; 
 }
 
-/* Ajuste de contenido y banners */
-.content, .banner {
-    margin-left: 0;
-    transition: margin 0.4s ease;
+#aside-nav h2{
+    padding-bottom: 8px;
 }
 
-.content.menu-visible, .banner.menu-visible {
-    margin-left: 300px; /* Margen cuando el menú está visible en pantallas grandes */
+#aside-nav h2::after{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #0000004d;
+    margin-top: 8px;
 }
 
-/* Adaptación para pantallas pequeñas */
-@media screen and (max-width: 1024px) {
-    #aside-nav {
-        top: 0; /* Ocupa la pantalla completa en pantallas pequeñas */
-        height: 100vh;
-        width: 100%;
+#aside-nav ul{
+    padding-left: 16px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+#aside-nav ul li a{
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+    font-size: 1em;
+    width: 100%;
+    padding: 4px;
+}
+
+#aside-nav ul li a:hover{
+    color: $primary;
+    text-decoration: underline;
+}
+
+.year-button{
+    width:100%;
+    background-color: $tertiary;
+    color: $white;
+    padding: 4px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: $ms-width){
+    #aside-toggle{
+        display: flex;
+        cursor: pointer;
     }
-    
-    .content.menu-visible, .banner.menu-visible {
-        margin-left: 0; /* No deja margen en pantallas pequeñas */
+
+    #aside-nav{
+        font-size: 1.25em;
+        display: none;
+        background: #f1f1f1d5;
+        backdrop-filter: blur(12px);
+        position: fixed;
+        z-index: 100;
+        border-right: 1px solid #dddddd4f;
+        width: 100%;
     }
 }
