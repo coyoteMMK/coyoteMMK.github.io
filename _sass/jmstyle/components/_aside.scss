@@ -11,24 +11,25 @@
 }
 
 #aside-nav {
-    display: none; // Oculto inicialmente en ambas configuraciones de pantalla
-    height: 100vh;
+    display: none;
+    height: calc(100vh - $header-height); // Ajusta la altura restando la del header
     color: $primary;
     background-color: $white;
     padding: 32px 16px;
     position: fixed;
-    top: 0;
+    top: $header-height; // El menú empieza justo debajo del header
     left: 0;
     overflow-y: auto;
     padding-bottom: 14vh;
     z-index: 1000;
     transition: transform 0.4s ease;
-    transform: translateX(-100%); // Oculto a la izquierda
+    transform: translateX(-100%); // Oculto inicialmente
 
     &.active {
         transform: translateX(0); // Visible cuando está activo
     }
 }
+
 
 @media screen and (min-width: 1025px) {
     #aside-toggle {
