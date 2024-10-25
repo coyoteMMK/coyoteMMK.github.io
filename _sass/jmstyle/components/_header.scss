@@ -8,14 +8,12 @@ header{
     gap: 16px;
     align-items: center;
     flex-direction: row;
-    //background: $white;
+    background: $white;
     color: $black;
     border-bottom: 1px solid #dddddd4f;
     position: fixed;
     z-index: 999;
     box-shadow: 0px 0px 8px 0px #00000033;
-    background: #f1f1f1d5;
-    backdrop-filter: blur(12px);
 }
 
 .logo-wrapper{
@@ -40,43 +38,43 @@ header{
     padding-left: 12px;
 }
 
-/* Ajustar el espaciado entre los botones */
-.nav-items {
+nav{
+    height: 100%;
+    width: 100%;
     display: flex;
-    gap: 16px; /* Asegura espacio entre cada .nav-item */
+    flex-direction: row;
+    align-items: center;    
 }
 
-/* Espaciado adicional en cada item */
-.nav-item {
-    margin-right: 8px; /* Añade espacio entre cada item */
+.nav-items{
     display: flex;
     text-decoration: none;
 }
 
-/* Evita que el hover se aplique a todos los botones */
-.nav-item a {
+.nav-item{
+    display: flex;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.nav-item a{
     height: 38px;
-    padding: 0 16px;
     text-decoration: none;
     display: flex;
     align-items: center;
     color: $black;
-    transition: all 0.2s ease-in-out;
 }
 
-/* Hover específico en cada enlace */
-.nav-item a:hover {
+.nav-item:hover{
     background: $header-button-color;
     color: $white;
 }
 
-/* Evitar que el hover afecte a todos los elementos */
-.nav-item:hover {
-    background: none; /* Elimina el fondo gris al pasar el ratón */
+.nav-item:hover a{
+    color: $white;
 }
 
-/* Ajustar tamaño y espaciado del texto */
-.nav-item a span {
+.nav-item a span{
     font-size: 1.25rem;
     font-weight: 500;
     padding-block: 8px;
