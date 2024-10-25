@@ -3,15 +3,10 @@
         {% for item in site.data.navigation %}
         <li class="nav-item">
             <!-- Botón para desplegar el menú lateral -->
-            <div id="aside-toggle">
-                <i class='bx bx-menu'></i> <!-- Icono del menú -->
-            </div>
+            <a id="aside-toggle" class='bx bx-menu'></i> <!-- Icono del menú -->
         
             <!-- Botón de casa (Home) -->
-            <a href="/" class="home-button">
-                <i class='bx bx-home'></i> <!-- Icono de casa -->
-                Casa
-            </a>
+            <a href="/" class="bx bx-home">Casa</a>
             
             <!-- Botón hacia la sección de blogs -->
             <a href="/blog" class="blog-button">
