@@ -1,42 +1,23 @@
-
 #aside-toggle {
     display: flex; // Mostrar siempre el botón de menú
     cursor: pointer;
     font-size: 2rem;
     align-items: center;
     justify-content: center;
-    position: fixed;
-    top: 20px; // Ajusta según el espacio necesario para el botón
-    left: 20px;
-    z-index: 1010; // Asegura que el botón esté por encima del contenido principal
 }
 
-#aside-nav {
-    display: none; // Oculto por defecto
-    height: calc(100vh - $header-height); // Altura ajustada según el header
-    width: $aside-width; 
+#aside-nav{
+    display: block;
+    height: 100vh;
+    width: $aside-width;
     color: $primary;
     background-color: $white;
-    padding: 32px 16px;
-    position: fixed;
-    top: $header-height; // Debajo del header
+    padding: 32px 16px 32px 24px;
+    position: sticky;
+    top: $header-height;
     left: 0;
-    overflow-y: auto;
-    padding-bottom: 14vh;
-    z-index: 1000;
-    transform: translateX(-100%); // Oculto fuera de la pantalla
-    transition: transform 0.4s ease;
-
-    &.active {
-        transform: translateX(0); // Desplazamiento cuando está activo
-    }
-}
-
-// Ajuste adicional si el menú debe ocupar toda la pantalla en pantallas pequeñas
-@media screen and (max-width: $ms-width) {
-    #aside-nav {
-        width: 100%; // Ocupa todo el ancho en pantallas pequeñas
-    }
+    overflow: scroll;
+    padding-bottom: 14vh; 
 }
 
 #aside-nav h2{
