@@ -40,6 +40,11 @@ function toggleMenu() {
             duration: 400,
             fill: 'forwards'
         });
+
+        // Establecer el aside como none después de la animación
+        setTimeout(() => {
+            aside.style.display = 'none'; // Ocultar el aside después de la animación
+        }, 400); // Coincide con la duración de la animación
     }
 }
 
