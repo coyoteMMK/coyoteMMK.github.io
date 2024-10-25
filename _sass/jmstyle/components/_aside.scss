@@ -17,6 +17,7 @@
     top: $header-height;
     left: 0;
     overflow: scroll;
+    transition: transform 0.4s ease; /* Opcional para transiciones más suaves */
     padding-bottom: 14vh; 
 }
 
