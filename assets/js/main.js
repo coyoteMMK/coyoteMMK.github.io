@@ -1,19 +1,22 @@
 
 var aside_toggle = document.getElementById('aside-toggle');
 var aside = document.getElementById('aside-nav');
-var content = document.querySelector('.content'); // Selecciona el contenedor de contenido principal
+var content = document.querySelector('.content'); // Contenedor principal de contenido
+var banner = document.querySelector('.banner'); // Contenedor de banners
 
 /** Función para mostrar/ocultar el menú lateral **/
 function toggleMenu() {
     aside.classList.toggle('active'); // Alternar clase 'active' para el menú
 
     if (aside.classList.contains('active')) {
-        // Si el menú está activo, añade clase al contenido para ajustar el margen
+        // Añadir clase para el contenido y banners cuando el menú está activo
         content.classList.add('menu-visible');
+        banner.classList.add('menu-visible');
         aside_toggle.innerHTML = '<i class="bx bx-x"></i>';
     } else {
-        // Si el menú está oculto, quita la clase al contenido
+        // Quitar la clase cuando el menú esté oculto
         content.classList.remove('menu-visible');
+        banner.classList.remove('menu-visible');
         aside_toggle.innerHTML = '<i class="bx bx-menu"></i>';
     }
 }
