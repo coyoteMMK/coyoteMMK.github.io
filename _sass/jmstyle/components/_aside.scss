@@ -1,11 +1,10 @@
-#aside-toggle {
+#aside-toggle{
     display: none;
     cursor: pointer;
     font-size: 2rem;
     align-items: center;
     justify-content: center;
 }
-
 
 #aside-nav{
     display: block;
@@ -21,33 +20,11 @@
     padding-bottom: 14vh; 
 }
 
-
-@media screen and (min-width: 1025px) {
-    #aside-toggle {
-        display: flex; // Mostrar el botón en pantallas grandes
-    }
-
-    #aside-nav {
-        width: 300px; // Ancho del menú en pantallas grandes
-    }
-}
-
-@media screen and (max-width: 1024px) {
-    #aside-toggle {
-        display: flex;
-    }
-
-    #aside-nav {
-        width: 100%; // Ancho completo en pantallas pequeñas
-    }
-}
-
-/* Estilos adicionales para el contenido del menú */
-#aside-nav h2 {
+#aside-nav h2{
     padding-bottom: 8px;
 }
 
-#aside-nav h2::after {
+#aside-nav h2::after{
     content: '';
     display: block;
     width: 100%;
@@ -56,14 +33,14 @@
     margin-top: 8px;
 }
 
-#aside-nav ul {
+#aside-nav ul{
     padding-left: 16px;
     list-style: none;
     display: flex;
     flex-direction: column;
 }
 
-#aside-nav ul li a {
+#aside-nav ul li a{
     display: inline-block;
     text-decoration: none;
     color: inherit;
@@ -72,15 +49,33 @@
     padding: 4px;
 }
 
-#aside-nav ul li a:hover {
+#aside-nav ul li a:hover{
     color: $primary;
     text-decoration: underline;
 }
 
-.year-button {
-    width: 100%;
+.year-button{
+    width:100%;
     background-color: $tertiary;
     color: $white;
     padding: 4px;
     cursor: pointer;
+}
+
+@media screen and (max-width: $ms-width){
+    #aside-toggle{
+        display: flex;
+        cursor: pointer;
+    }
+
+    #aside-nav{
+        font-size: 1.25em;
+        display: none;
+        background: #f1f1f1d5;
+        backdrop-filter: blur(12px);
+        position: fixed;
+        z-index: 100;
+        border-right: 1px solid #dddddd4f;
+        width: 100%;
+    }
 }
