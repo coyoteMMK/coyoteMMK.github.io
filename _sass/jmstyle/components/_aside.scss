@@ -16,14 +16,8 @@
     position: fixed;
     top: $header-height;
     left: 0;
-    overflow-y: auto;
-    transition: transform 0.4s ease;
-    z-index: 1000;
-
-    &.active {
-        display: block;
-        transform: translateX(0); // Muestra el menú
-    }
+    overflow: scroll;
+    padding-bottom: 14vh; 
 }
 
 #aside-nav h2{
