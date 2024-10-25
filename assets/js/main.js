@@ -2,18 +2,8 @@
  * Aside show and hide when screen_width = 1024px
  */
 var aside_toggle = document.getElementById('aside-toggle');
-const asideNav = document.getElementById('aside-nav');
-const content = document.querySelector('.content'); // Selecciona el contenedor principal del contenido
 /** Aside show and hide when screen_width = 1024px **/
 function toggleMenu() {
-    asideNav.classList.toggle('active');
-    content.classList.toggle('shifted'); // Cambia la clase shifted en el contenido principal
-
-    if (asideNav.classList.contains('active')) {
-        asideToggle.innerHTML = '<i class="bx bx-x"></i>';
-    } else {
-        asideToggle.innerHTML = '<i class="bx bx-menu"></i>';
-    }
     var aside = document.getElementById('aside-nav');
     aside.classList.toggle('active');
     if (aside.classList.contains('active')) {
