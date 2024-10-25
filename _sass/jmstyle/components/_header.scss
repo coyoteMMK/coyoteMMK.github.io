@@ -50,7 +50,8 @@ nav{
 
 .nav-items{
     display: flex;
-    text-decoration: none;
+    justify-content: space-between; /* Distribuye elementos con espacio entre ellos */
+    width: 100%;
 }
 
 .nav-item{
