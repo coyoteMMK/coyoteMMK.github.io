@@ -1,33 +1,31 @@
-/* Estilos para el botón de menú lateral */
-#aside-toggle {
-    display: flex;
-    cursor: pointer;
-    font-size: 2rem;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000; /* Asegura que esté encima del contenido */
-    position: fixed;
-    top: 20px;
-    left: 20px;
-}
 
-/* Ocultar el menú lateral por defecto */
+/* Estilos del menú lateral oculto inicialmente */
 #aside-nav {
     display: none;
     position: fixed;
-    top: 0;
+    top: 60px; /* Ajusta esto a la altura de tu header */
     left: 0;
-    width: 300px; /* El ancho del menú lateral */
-    height: 100vh;
+    width: 300px; /* Ancho del menú */
+    height: calc(100vh - 60px); /* Altura de la pantalla menos la del header */
     background-color: #121212;
-    z-index: 999;
     overflow-y: auto;
+    z-index: 999;
 }
 
 /* Mostrar el menú lateral cuando esté activo */
 #aside-nav.active {
     display: block;
     animation: slideIn 0.4s forwards;
+}
+
+/* Ajuste para el contenido cuando el menú está visible */
+.content {
+    margin-left: 0;
+    transition: margin 0.4s ease;
+}
+
+.content.menu-visible {
+    margin-left: 300px; /* Margen que deja espacio para el menú */
 }
 
 /* Animación para el menú lateral */
@@ -37,18 +35,5 @@
     }
     to {
         transform: translateX(0);
-    }
-}
-
-/* Ajuste para pantallas grandes y pequeñas: El contenido ocupa toda la pantalla */
-.content {
-    width: 100%; /* Ocupar todo el ancho de la pantalla */
-    padding: 20px; /* Ajusta según tu diseño */
-}
-
-/* En pantallas pequeñas, el menú ocupa todo el ancho */
-@media screen and (max-width: 1024px) {
-    #aside-nav {
-        width: 100%; /* El menú ocupa toda la pantalla */
     }
 }
